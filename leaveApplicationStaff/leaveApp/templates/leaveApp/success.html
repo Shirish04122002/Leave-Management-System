@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'leaveApp/css/apply.css' %}">
+</head>
+
+<body>
+    <header class="row">
+        <div class="col-md-12 bg-dark py-3">
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 bg-light left-sidebar" style="min-height: 100vh;">
+                <ul class="btn btn-dark">
+                    <li href="#" class="btn btn-dark width-side">Leaves Applied</a>
+                </ul>
+            </div>
+
+            <div class="col-md-6 main" style="min-height: 100vh;">
+                <center>
+                    <div class="shadow-lg p-3 mb-5 bg-dark text-success rounded mt-5 p-5 font-weight-bolder">
+                        <h4><ins>Your
+                                Leave Application has been submitted successfully!</ins></h2>
+                    </div>
+                </center>
+                <table class="table table-bordered table-hover shadow-lg mt-5">
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Name</th>
+                            <th>Leave Type</th>
+                            <th>From Date</th>
+                            <th>Till Date</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in staff_data %}
+                        <tr>
+                            <td>{{ data.employeeId }}</td>
+                            <td>{{ data.name }}</td>
+                            <td>{{ data.leave_type }}</td>
+                            <td>{{ data.from_date }}</td>
+                            <td>{{ data.till_date }}</td>
+                            <td>{{ data.reason }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="col-md-3 bg-light" style="min-height: 100vh;">
+                <div class="d-flex flex-column">
+                    <div class="p-2">
+                        <footer>
+                            <center>
+                                <div class="container mt-5">
+                                    <a class="btn btn-outline-danger p-4 btn-block"
+                                        id="logoutBtn" href="{% url 'logout' %}">Logout</a>
+                                </div>
+                            </center>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+    </script>
+
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

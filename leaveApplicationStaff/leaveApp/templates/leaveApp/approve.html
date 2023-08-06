@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'leaveApp/css/apply.css' %}">
+</head>
+
+<body>
+    <header class="row">
+        <div class="col-md-12 bg-dark py-3">
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 bg-light left-sidebar" style="min-height: 100vh;">
+                <ul class="btn btn-dark">
+                    <li href="#" class="btn btn-dark width-side">Home</a>
+                </ul>
+            </div>
+
+            <div class="col-md-6 main" style="min-height: 100vh;">
+                <div class="d-flex flex-column justify-content-around">
+                    <div class="d-inline-flex p-2">
+                        <a href="{% url 'leaveApp:apply' %}"><img src="{% static 'leaveApp/imgs/apply.png' %}" alt="apply.png"></a>
+                        <a href=""><img src="{% static 'leaveApp/imgs/approve.png' %}"
+                                alt="apply.png"></a>
+                    </div>
+                    <div class="container">
+                        <h1>Manager ID: {{ managerId }}</h1>
+                        <h2>Leave Approval</h2>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Employee ID</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for staff in staff_data %}
+                                <tr>
+                                    <td>{{ staff.employeeId }}</td>
+                                    <td>
+                                        <form action="{% url 'leaveApp:approve_action' staff.employeeId %}" method="post">
+                                            {% csrf_token %}
+                                            <button type="submit" name="action" value="approve"
+                                                class="btn btn-success">Approve</button>
+                                            <button type="submit" name="action" value="reject"
+                                                class="btn btn-danger">Reject</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="col-md-3 bg-light" style="min-height: 100vh;">
+                <div class="d-flex flex-column">
+                    <div class="p-2">
+                        <footer>
+                            <center>
+                                <div class="container mt-5">
+                                    <a class="btn btn-outline-danger p-4 btn-block"
+                                        id="logoutBtn" href="{% url 'logout' %}">Logout</a>
+                                </div>
+                            </center>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+    </script>
+
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

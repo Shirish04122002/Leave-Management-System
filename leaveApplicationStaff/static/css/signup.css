@@ -1,0 +1,36 @@
+.sub-flex-60{
+    width: 70%;
+    
+}
+.sub-flex-40{
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    background-color: #ECEFF4;
+}
+.login{
+    background: #FFFFFF;
+    padding: 10px 20px;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    border-radius: 15px;
+    width: 300px;
+}
+.login h1{
+    color: #26409E;
+}
+.email-font{
+    font-size: medium;
+    font-weight: bolder;
+    padding: 3px 10px;
+    background-color: #EDEDED;
+}
+.text-small{
+    font-size: medium;
+}
+.submit{
+    background-color: #133B79;
+}
+.submit:hover{
+    background-color: #254a83;
+}
