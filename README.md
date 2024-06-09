@@ -1,2 +1,1 @@
-# DjangoProjects
- Projects i have worked on
+Leave Management Module in Django
