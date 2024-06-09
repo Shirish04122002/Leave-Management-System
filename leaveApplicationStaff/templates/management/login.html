@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 {% load static %}
 <html lang="en">
 
@@ -11,43 +11,32 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 
-<body>
-    <div class="d-flex">
-        <div class="sub-flex bg-dark">
-            <img src="{% static 'imgs/loginpage.png' %}" alt="loginpage.png" height="786">
-        </div>
-        <div class="sub-flex-40">
-            <center>
-                <div class="login display-5">
-                    <center>
-                        <h1>LWP</h1>
-                        <div class="login-sub">
-                            <h4>Login</h4>
-                            <p class="email-font">
-                                Email
-                            </p>
-                            <div class="form-sign-in">
-                                <form action="{% url 'login' %}" method="post">
-                                    {% csrf_token %}
-                                    <div class="mb-3">
-                                        <label for="userid" class="font-weight-bold text-small"><b>Enter
-                                                User ID</b></label>
-                                        <input type="text" class="form-control" id="userid" name="userid" width="100"
-                                            placeholder="ID" required>
-                                        <label for="password" class="font-weight-bold text-small"><b>Enter
-                                                password</b></label>
-                                        <input type="password" class="form-control" id="password" name="password"
-                                            width="100" required>
-                                    </div>
-                                    <input type="submit" value="LogIn" class="btn btn-m submit text-white">
-                                </form>
-                            </div>
+<body class="d-flex">
+    <div class="sub-flex bg-dark d-flex flex-column justify-content-center align-items-center">
+        <img src="{% static 'imgs/loginpage.png' %}" alt="loginpage.png" height="786">
+    </div>
+    <div class="sub-flex-40 d-flex flex-column justify-content-center align-items-center">
+        <div class="login display-5">
+            <h1>LWP</h1>
+            <div class="login-sub">
+                <h4>Login</h4>
+                <!-- <p class="email-font">Email</p> -->
+                <div class="form-sign-in">
+                    <form action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="userid" class="font-weight-bold text-small"><b>Enter User ID</b></label>
+                            <input type="text" class="form-control" id="userid" name="userid" width="100"
+                                placeholder="ID" required>
+                            <label for="password" class="font-weight-bold text-small"><b>Enter password</b></label>
+                            <input type="password" class="form-control" id="password" name="password" width="100"
+                                required>
                         </div>
-                        <p class="font-weight-bold text-small">New User? <a href="{% url 'signup' %}">Register now</a>
-                        </p>
-                    </center>
+                        <input type="submit" value="LogIn" class="btn btn-m submit text-white">
+                    </form>
                 </div>
-            </center>
+            </div>
+            <p class="font-weight-bold text-small">New User? <a href="{% url 'signup' %}">Register now</a></p>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
